@@ -114,10 +114,10 @@ CVisualizationWaveForm::~CVisualizationWaveForm()
 //-----------------------------------------------------------------------------
 ADDON_STATUS CVisualizationWaveForm::Create()
 {
-  m_viewport.TopLeftX = static_cast<float>(X());
-  m_viewport.TopLeftY = static_cast<float>(Y());
-  m_viewport.Width = static_cast<float>(Width());
-  m_viewport.Height = static_cast<float>(Height());
+  m_viewport.TopLeftX = 109;
+  m_viewport.TopLeftY = 524;
+  m_viewport.Width = 734;
+  m_viewport.Height = 232;
   m_viewport.MinDepth = 0;
   m_viewport.MaxDepth = 1;
   m_context = (ID3D11DeviceContext*)Device();
@@ -278,7 +278,7 @@ void CVisualizationWaveForm::Render()
   // draw left channel
   m_context->Draw(m_usedLinePoints, 0);
   // draw right channel
-  m_context->Draw(m_usedLinePoints, m_usedLinePoints);
+  //m_context->Draw(m_usedLinePoints, m_usedLinePoints);
 }
 
 bool CVisualizationWaveForm::init_renderer_objs()
