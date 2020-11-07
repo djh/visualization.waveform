@@ -21,6 +21,10 @@ environment:
       CONFIG: Release
       WINSTORE: -DCMAKE_SYSTEM_NAME=WindowsStore -DCMAKE_SYSTEM_VERSION="10.0.16299.0"
 
+artifacts:
+  - path: '**\*.dll'
+    name: MyApp
+
 build_script:
   - cd ..
   - git clone --branch Leia --depth=1 https://github.com/xbmc/xbmc.git
