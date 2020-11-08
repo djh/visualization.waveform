@@ -254,7 +254,7 @@ void CVisualizationWaveForm::Render()
   {
     m_verts[j].col = XMFLOAT4(glm::value_ptr(m_lineColor));
     m_verts[j].x = m_viewport.TopLeftX + (-1.0f + ((i / float(m_usedLinePoints)) * 2.0f) * m_viewport.Width);
-    m_verts[j].y = m_viewport.TopLeftY + m_viewport.Height * 0.5f + (m_fWaveform[0][i] * m_viewport.Height * 0.3f);
+    m_verts[j].y = m_viewport.TopLeftY + m_viewport.Height * 0.3f + (m_fWaveform[0][i] * m_viewport.Height * 0.3f);
     m_verts[j].z = 1.0;
     j++;
   }
