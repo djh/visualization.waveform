@@ -260,14 +260,14 @@ void CVisualizationWaveForm::Render()
   }
 
   // Right channel
-  for (int i = 0; i < m_usedLinePoints; i++)
-  {
-    m_verts[j].col = XMFLOAT4(glm::value_ptr(m_lineColor));
-    m_verts[j].x = m_viewport.TopLeftX + (-1.0f + ((i / float(m_usedLinePoints)) * 2.0f) * m_viewport.Width);
-    m_verts[j].y = m_viewport.TopLeftY + m_viewport.Height * 0.75f + (m_fWaveform[1][i] * m_viewport.Height * 0.3f);
-    m_verts[j].z = 1.0;
-    j++;
-  }
+  //for (int i = 0; i < m_usedLinePoints; i++)
+  //{
+  //  m_verts[j].col = XMFLOAT4(glm::value_ptr(m_lineColor));
+  //  m_verts[j].x = m_viewport.TopLeftX + (-1.0f + ((i / float(m_usedLinePoints)) * 2.0f) * m_viewport.Width);
+  //  m_verts[j].y = m_viewport.TopLeftY + m_viewport.Height * 0.75f + (m_fWaveform[1][i] * m_viewport.Height * 0.3f);
+  //  m_verts[j].z = 1.0;
+  //  j++;
+  //===}
 
   // a little optimization: generate and send all vertecies for both channels
   if (S_OK == m_context->Map(m_vBuffer, 0, D3D11_MAP_WRITE_DISCARD, 0, &res))
@@ -307,7 +307,7 @@ bool CVisualizationWaveForm::init_renderer_objs()
 
   desc.ByteWidth = sizeof(cbViewPort);
   desc.BindFlags = D3D11_BIND_CONSTANT_BUFFER;
-  desc.Usage = D3D11_USAGE_DEFAULT;
+  desc.Usage = D3D11_USAGE_DYNAMIC;
   desc.CPUAccessFlags = 0;
 
   cbViewPort viewPort = { (float)m_viewport.Width, (float)m_viewport.Height, 0.0f, 0.0f };
