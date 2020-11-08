@@ -10,8 +10,6 @@ environment:
   app_id: visualization.waveform
 
   matrix:
-    - GENERATOR: "Visual Studio 15"
-      CONFIG: Release
     - GENERATOR: "Visual Studio 15 Win64"
       CONFIG: Release
 
