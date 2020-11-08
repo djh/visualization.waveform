@@ -239,7 +239,7 @@ void CVisualizationWaveForm::Render()
     // a little optimization: generate and send all vertecies for both channels
     if (S_OK == m_context->Map(m_vBuffer, 0, D3D11_MAP_WRITE_DISCARD, 0, &res))
     {
-      memcpy(res.pData, m_verts, sizeof(Vertex_t) * 5);
+      memcpy(res.pData, m_verts, sizeof(Vertex_t) * 2);
       m_context->Unmap(m_vBuffer, 0);
     }
     // draw background
