@@ -192,7 +192,7 @@ void CVisualizationWaveForm::AudioData(const float* pAudioData, int iAudioDataLe
     for (int i=0; i < length; i+=usedStep)
     {
       m_fWaveform[0][ipos] = pAudioData[i  ]; // left channel
-      m_fWaveform[1][ipos] = pAudioData[i+1]; // right channel
+//      m_fWaveform[1][ipos] = pAudioData[i+1]; // right channel
       ipos++;
       if (ipos >= m_usedLinePoints)
          break;
@@ -239,7 +239,7 @@ void CVisualizationWaveForm::Render()
     // a little optimization: generate and send all vertecies for both channels
     if (S_OK == m_context->Map(m_vBuffer, 0, D3D11_MAP_WRITE_DISCARD, 0, &res))
     {
-      memcpy(res.pData, m_verts, sizeof(Vertex_t) * 2);
+      memcpy(res.pData, m_verts, sizeof(Vertex_t) * 1);
       m_context->Unmap(m_vBuffer, 0);
     }
     // draw background
@@ -254,7 +254,7 @@ void CVisualizationWaveForm::Render()
   {
     m_verts[j].col = XMFLOAT4(glm::value_ptr(m_lineColor));
     m_verts[j].x = m_viewport.TopLeftX + (-1.0f + ((i / float(m_usedLinePoints)) * 2.0f) * m_viewport.Width);
-    m_verts[j].y = m_viewport.TopLeftY + m_viewport.Height * 0.5f + (m_fWaveform[0][i] * m_viewport.Height * 0.1f);
+    m_verts[j].y = m_viewport.TopLeftY + m_viewport.Height * 0.5f + (m_fWaveform[0][i] * m_viewport.Height * 0.3f);
     m_verts[j].z = 1.0;
     j++;
   }
