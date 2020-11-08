@@ -307,7 +307,7 @@ bool CVisualizationWaveForm::init_renderer_objs()
 
   desc.ByteWidth = sizeof(cbViewPort);
   desc.BindFlags = D3D11_BIND_CONSTANT_BUFFER;
-  desc.Usage = D3D11_USAGE_DYNAMIC;
+  desc.Usage = D3D11_USAGE_DEFAULT;
   desc.CPUAccessFlags = 0;
 
   cbViewPort viewPort = { (float)m_viewport.Width, (float)m_viewport.Height, 0.0f, 0.0f };
